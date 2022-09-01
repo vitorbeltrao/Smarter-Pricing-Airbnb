@@ -5,10 +5,8 @@ import seaborn as sns
 import numpy as np
 import joblib
 import streamlit as st
-from utils import outliers
-import statsmodels.api as sm
-from sklearn.preprocessing import StandardScaler, MinMaxScaler
-from sklearn import preprocessing
+from utils import outliers, testevaluate
+from sklearn.model_selection import GridSearchCV
 
 # Import saved model
 model = joblib.load('elastic_net.pkl')
@@ -66,7 +64,55 @@ def main():
 
       if result < 0.00:
           st.success('Your Airbnb daily price is: 34.00')
+
+  st.empty()
 ####################################################################################
+  # 1. Importar o conjunto de dados de testes
+  test_set = pd.read_csv('test_set.csv')
+  df_test = test_set.copy()
+
+  # 2. Corrigir ou remover outliers
+  numerical_cols = ['accommodates', 'bathrooms', 'bedrooms', 'beds', 'price']
+  for col in numerical_cols:
+      outliers.exclui_outliers(df_test, col)
+
+  # 3. Preencher ou remover valores ausentes
+  df_test.dropna(inplace=True)
+
+  # 4. Separar as variáveis independentes da variável dependente
+  X_test = df_test.drop('price', axis=1)
+  y_test = df_test['price']
+
+  # 5. Transformar as variáveis qualitativas para numéricas
+  X_test = pd.get_dummies(X_test, drop_first=True)
+
+  # 6. Seleção das variáveis
+  X_test = X_test[['latitude', 'longitude', 'accommodates', 'bathrooms',
+                   'bedrooms', 'beds', 'room_type_Hotel room', 'room_type_Private room', 'room_type_Shared room',
+                   'availability_365']]
+
+  # Some information
+  col1, col2 = st.columns(2)
+
+  with col1:
+      result = testevaluate.predict_evaluate(model, X_test, y_test, 0.95)
+      st.write('The RMSE in test set is:', result['RMSE'])
+      st.write('The R² in test set is:', result['R²'])
+      st.write('The confidence interval for RMSE is:', result['Confidence Interval'])
+
+  with col2:
+      st.markdown('''
+        The most important features are:
+        * latitude
+        * longitude
+        * accommodates
+        * bathrooms
+        * bedrooms
+        * beds
+        * room type Hotel room
+        * room type Private room
+        * room type Shared room
+      ''')
 
 if __name__ == '__main__':
     main()  # calling the main method

@@ -1,4 +1,4 @@
-# Regression Model - Smarter Pricing
+# Smarter Pricing
 
 ![Airbnb App]()
 
@@ -59,10 +59,10 @@ We have the following files here:
 * A folder (pages) with the other two tabs of our web app.
 * A folder (utils) with all the functions needed to make the web app.
 * A folder (Notebooks) with the respective notebooks: ETL, EDA and ML.
+* A folder (data) with the data used in this project.
 * A txt file where are all the libraries and their versions needed for the web application to work (requirements.txt).
 * A txt file about the license to use the entire project developed (license.txt).
 * The pickle file with the best model and its entire execution pipeline, saved.
-* For reasons of storage capacity, we will not make the data available here, but you can download it directly from [Airbnb](http://insideairbnb.com/get-the-data/).
 
 ## Results<a name="results"></a>
 
