@@ -1,6 +1,6 @@
 # Smarter Pricing
 
-![Airbnb App]()
+![Airbnb App](https://github.com/vitorbeltrao/Pictures/blob/main/airbnbanalysis.png?raw=true)
 
 ## Table of Contents
 
@@ -59,14 +59,14 @@ We have the following files here:
 * A folder (pages) with the other two tabs of our web app.
 * A folder (utils) with all the functions needed to make the web app.
 * A folder (Notebooks) with the respective notebooks: ETL, EDA and ML.
-* A folder (data) with the data used in this project.
+* Data files such as "listings.csv.gz", "train_set.csv", "test_set.csv".
 * A txt file where are all the libraries and their versions needed for the web application to work (requirements.txt).
 * A txt file about the license to use the entire project developed (license.txt).
 * The pickle file with the best model and its entire execution pipeline, saved.
 
 ## Results<a name="results"></a>
 
-The final web application for this job is available at the following link: 
+The final web application for this job is available at the following link: https://vitorbeltrao-smarter-pricing-airbnb-hello-2b2us0.streamlitapp.com/ 
 
 ## Licensing and Authors <a name="licensingandauthors"></a>
 
