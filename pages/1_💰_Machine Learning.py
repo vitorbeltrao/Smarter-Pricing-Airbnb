@@ -1,12 +1,9 @@
 # Import necessary packages
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 import numpy as np
 import joblib
 import streamlit as st
 from utils import outliers, testevaluate
-from sklearn.model_selection import GridSearchCV
 
 # Import saved model
 model = joblib.load('elastic_net.pkl')
