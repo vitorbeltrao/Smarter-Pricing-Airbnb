@@ -57,7 +57,7 @@ st.pyplot(boxplot.boxplot((15, 5), 'The distribuition of price in the neighborho
 
 st.caption('Statistical summary of prices by neighborhood')
 st.table(df_filtered3.groupby(by=["neighbourhood_cleansed"]).agg({'price' : ['min', 'max', 'mean', 'median', np.std]}))
-st.markdown('Well, it seems that Copacabana lost the first place:stuck_out_tongue_winking_eye:, see that the median price is only 258.00 reals, much lower than Barra, Ipanema, Leblon and Recreio, which are already in the range of 400.00 reals:money_with_wings:. **Note that it is preferable to look at the median in this case, as we have a lot of extreme values in this dataset.**')
+st.markdown('Well, it seems that Copacabana lost the first place:stuck_out_tongue_winking_eye:, see that the median price is only 258 reais, much lower than Barra, Ipanema, Leblon and Recreio, which are already in the range of 400 reais:money_with_wings:. **Note that it is preferable to look at the median in this case, as we have a lot of extreme values in this dataset.**')
 st.empty()
 st.markdown('**If you want a cheaper place, bet on the downtown and Santa Teresa regions.**	:money_mouth_face:')
 
@@ -66,15 +66,15 @@ st.pyplot(boxplot.boxplot((15, 5), 'The distribuition of availability in the nei
                           'neighbourhood_cleansed', 'availability_365', 'Neighbourhood', 'Availability Distribuition'))
 st.markdown('It seems that all these neighborhoods that we are studying have good availability throughout the year. Good for travelers!:small_airplane:')
 
-# 6. scatterplot - prices per neighbourghood
-outliers.exclui_outliers(df, col)
-st.pyplot(scatterplot.scatter((10, 6), 'Map of Price Distribution in all neighbourhoods', df,
-                              'latitude', 'longitude', 'price', 'Latitude', 'Longitude'))
-st.markdown('Not much information or pattern here, just a mess!')
+# 6. scatterplot - crowded regions
+df_filtered4 = [['latitude', 'longitude']]
+st.markdown('**Scatter plot - latitude x longitude of Airbnbs**')
+st.map(df)
+st.markdown('Look how interesting! **See how the density of Airbnbs increases a lot in regions close to the beach/lagoons**. For a city like Rio de Janeiro, I think it was to be expected, right?')
 
 # 7. statistical summary - reviews
 st.caption('Statistical summary of reviews by neighborhood')
 st.table(df_filtered3.groupby(by=["neighbourhood_cleansed"]).agg({'review_scores_value' : ['mean', 'median', np.std]}))
 st.markdown('Looks like travelers are going to be happy again, the mean and median review scores are pretty high! And all this with a relatively low standard deviation. Wonderful!	:smile:')
 st.empty()
-st.markdown('Well, lets end the story here.:wave:')
+st.markdown('Go to the ML page and give it a try.:wave:')
