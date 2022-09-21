@@ -33,7 +33,7 @@ st.balloons()
 #    st.image(st_logo, width=500)
 
 qdois_logo = Image.open('assets/qdois_logo.png')
-st.image(qdois_logo, width=250)
+st.image(qdois_logo, width=500)
 
 # Set middle text
 st.markdown(
