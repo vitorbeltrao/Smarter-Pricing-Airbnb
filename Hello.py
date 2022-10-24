@@ -9,12 +9,10 @@ st.set_page_config(
 
 # set side bar
 def load_about():
-	st.sidebar.title("Sobre")
+	st.sidebar.title("About")
 	st.sidebar.info(
 		"""
-		Doubts or suggestions, please contact:\n📩 vitorabdo@brq.com
-		                                      \n📩 carolinamedeiros@brq.com
-		                                      \n📩 acoura@brq.com
+		Doubts or suggestions, please contact:\n📩 vitorbeltrao300@gmail.com
 		"""
     )
 
@@ -23,17 +21,14 @@ st.write("# Welcome to Airbnb Analysis 👋")
 st.balloons()
 
 # Set airbnb and streamlit images
-#col1, col2 = st.columns(2)
-#with col1:
-#   airbnb_logo = Image.open('assets/airbnb.png')
-#    st.image(airbnb_logo, width=250)
+col1, col2 = st.columns(2)
+with col1:
+    airbnb_logo = Image.open('assets/airbnb.png')
+    st.image(airbnb_logo, width=250)
 
 #with col2:
-#    st_logo = Image.open('assets/streamlit.jpg')
-#    st.image(st_logo, width=500)
-
-qdois_logo = Image.open('assets/qdois_logo.png')
-st.image(qdois_logo, width=600)
+    st_logo = Image.open('assets/streamlit.jpg')
+    st.image(st_logo, width=500)
 
 # Set middle text
 st.markdown(
