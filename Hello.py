@@ -26,7 +26,7 @@ with col1:
     airbnb_logo = Image.open('assets/airbnb.png')
     st.image(airbnb_logo, width=250)
 
-#with col2:
+with col2:
     st_logo = Image.open('assets/streamlit.jpg')
     st.image(st_logo, width=500)
 
